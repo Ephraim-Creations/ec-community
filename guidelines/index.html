@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Community Guidelines - EC Community</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Imperial+Script&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles for guidelines page - MOBILE FRIENDLY */
+        .guidelines-hero {
+            background: linear-gradient(135deg, rgba(74, 0, 224, 0.05) 0%, rgba(142, 45, 226, 0.05) 50%, rgba(0, 201, 255, 0.05) 100%);
+            padding: 120px 0 60px;
+            text-align: center;
+            overflow: hidden;
+            /* Prevent overflow */
+        }
+
+        .guidelines-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 15px;
+            /* Reduced padding on mobile */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .guidelines-section {
+            background: var(--white);
+            padding: 2rem 1.5rem;
+            /* Reduced padding */
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            margin-bottom: 1.5rem;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            /* Prevent content overflow */
+        }
+
+        .guidelines-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--gradient);
+            padding-bottom: 0.5rem;
+            font-size: 1.8rem;
+            /* Smaller on mobile */
+            word-wrap: break-word;
+        }
+
+        .rule-card {
+            background: var(--background);
+            padding: 1.25rem;
+            /* Reduced padding */
+            border-radius: 10px;
+            margin-bottom: 1.25rem;
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            /* Prevent content overflow */
+        }
+
+        .rule-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .rule-card.violation {
+            border-left-color: #ff6b6b;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(238, 90, 82, 0.05) 100%);
+        }
+
+        .rule-card.warning {
+            border-left-color: #ffd93d;
+            background: linear-gradient(135deg, rgba(255, 217, 61, 0.05) 0%, rgba(255, 196, 61, 0.05) 100%);
+        }
+
+        .rule-card.success {
+            border-left-color: #6bcf7f;
+            background: linear-gradient(135deg, rgba(107, 207, 127, 0.05) 0%, rgba(86, 207, 110, 0.05) 100%);
+        }
+
+        .rule-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            /* Allow wrapping on mobile */
+        }
+
+        .rule-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .rule-icon.violation {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        }
+
+        .rule-icon.warning {
+            background: linear-gradient(135deg, #ffd93d, #ffc83d);
+        }
+
+        .rule-icon.success {
+            background: linear-gradient(135deg, #6bcf7f, #56cf6e);
+        }
+
+        .rule-title {
+            font-size: 1.1rem;
+            /* Smaller on mobile */
+            font-weight: 600;
+            color: var(--text);
+            margin: 0;
+            word-wrap: break-word;
+            flex: 1;
+            min-width: 0;
+            /* Allow text truncation */
+        }
+
+        .rule-description {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .consequence {
+            background: rgba(255, 107, 107, 0.1);
+            padding: 0.875rem;
+            /* Reduced padding */
+            border-radius: 8px;
+            border-left: 3px solid #ff6b6b;
+            margin-top: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .consequence h4 {
+            color: #ee5a52;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            /* Allow wrapping */
+            font-size: 1rem;
+            /* Smaller on mobile */
+        }
+
+        .consequence-level {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            /* Smaller padding */
+            background: #ee5a52;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            /* Smaller font */
+            font-weight: 600;
+            margin-left: 0.5rem;
+            white-space: nowrap;
+            /* Prevent text breaking */
+        }
+
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            /* Smaller minmax */
+            gap: 1rem;
+            /* Reduced gap */
+            margin: 1.5rem 0;
+            width: 100%;
+        }
+
+        .guideline-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.875rem;
+            /* Reduced gap */
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow-light);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .guideline-point i {
+            color: var(--primary);
+            font-size: 1.1rem;
+            /* Smaller icons */
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+        }
+
+        .age-restriction {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 1.5rem;
+            /* Reduced padding */
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin: 1.5rem 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .age-restriction i {
+            font-size: 1.75rem;
+            /* Smaller icon */
+            margin-bottom: 0.75rem;
+        }
+
+        .age-restriction h2 {
+            font-size: 1.5rem;
+            /* Smaller heading */
+            margin-bottom: 0.75rem;
+        }
+
+        /* Mobile-First Responsive Design */
+        @media (max-width: 768px) {
+            .guidelines-hero {
+                padding: 100px 0 40px;
+            }
+
+            .guidelines-content {
+                padding: 20px 10px;
+                /* Even smaller padding on very small screens */
+            }
+
+            .guidelines-section {
+                padding: 1.5rem 1rem;
+                /* Further reduced padding */
+                margin-bottom: 1rem;
+            }
+
+            .guidelines-section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .rule-card {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .rule-header {
+                gap: 0.75rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .rule-icon {
+                width: 35px;
+                height: 35px;
+            }
+
+            .rule-title {
+                font-size: 1rem;
+            }
+
+            .rule-description {
+                font-size: 0.9rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .consequence {
+                padding: 0.75rem;
+                margin-top: 0.75rem;
+            }
+
+            .consequence h4 {
+                font-size: 0.9rem;
+            }
+
+            .consequence-level {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.5rem;
+            }
+
+            .guidelines-grid {
+                grid-template-columns: 1fr;
+                gap: 0.875rem;
+                margin: 1rem 0;
+            }
+
+            .guideline-point {
+                padding: 0.875rem;
+                gap: 0.75rem;
+            }
+
+            .guideline-point i {
+                font-size: 1rem;
+            }
+
+            .age-restriction {
+                padding: 1.25rem;
+                margin: 1rem 0;
+            }
+
+            .age-restriction i {
+                font-size: 1.5rem;
+            }
+
+            .age-restriction h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Extra small devices (phones under 400px) */
+        @media (max-width: 400px) {
+            .guidelines-content {
+                padding: 15px 8px;
+            }
+
+            .guidelines-section {
+                padding: 1.25rem 0.875rem;
+            }
+
+            .guidelines-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .rule-card {
+                padding: 0.875rem;
+            }
+
+            .rule-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .rule-title {
+                text-align: center;
+            }
+
+            .guidelines-grid {
+                gap: 0.75rem;
+            }
+
+            .guideline-point {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Prevent horizontal scrolling globally */
+        body,
+        html {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        .container {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/your-number" class="float-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="/images/favicon.png" alt="EC Community Logo" class="logo-img">
+                <span class="logo-text">Ec community</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#devs-hub">Devs Hub</a></li>
+                <li><a href="/#insight-room">Insight Room</a></li>
+                <li><a href="/#founder">Founder</a></li>
+                <li><a href="/#faq">FAQ</a></li>
+                <li><a href="/guidelines/">Guidelines</a></li>
+                <li><a href="/privacy-plan/">Your Privacy</a></li>
+                <li><a href="/#join" class="btn-nav">Join Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Guidelines Hero -->
+    <section class="guidelines-hero">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h1>Community Guidelines</h1>
+                <p class="section-subtitle">Creating a Safe, Respectful, and Valuable Environment for Everyone</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guidelines Content -->
+    <section class="guidelines-content">
+        <div class="container">
+            <!-- Age Restriction -->
+            <div class="age-restriction" data-aos="fade-up">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h2>Age Restriction: 18+ Only</h2>
+                <p style="font-size: 1.1rem; margin: 0; color: black;">
+                    Our communities are exclusively for individuals aged 18 years and above.
+                    By participating, you confirm you meet this requirement.
+                </p>
+            </div>
+
+            <!-- Introduction -->
+            <div class="guidelines-section" data-aos="fade-up">
+                <h2><i class="fas fa-handshake"></i> Our Community Values</h2>
+                <p>EC Community is built on mutual respect, collaboration, and professional growth. These guidelines
+                    ensure everyone has a positive experience.</p>
+
+                <div class="guidelines-grid">
+                    <div class="guideline-point">
+                        <i class="fas fa-heart"></i>
+                        <div>
+                            <h4>Be Respectful</h4>
+                            <p>Treat all members with kindness and professionalism</p>
+                        </div>
+                    </div>
+                    <div class="guideline-point">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <h4>Learn Together</h4>
+                            <p>Share knowledge and help others grow</p>
+                        </div>
+                    </div>
+                    <div class="guideline-point">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>Collaborate</h4>
+                            <p>Work together on projects and ideas</p>
+                        </div>
+                    </div>
+                    <div class="guideline-point">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>Stay Safe</h4>
+                            <p>Protect your privacy and others'</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zero Tolerance Rules -->
+            <div class="guidelines-section" data-aos="fade-up">
+                <h2><i class="fas fa-ban"></i> Zero Tolerance - Immediate Removal</h2>
+                <p>These violations result in immediate and permanent removal from all EC Community groups.</p>
+
+                <!-- Rule 1 -->
+                <div class="rule-card violation">
+                    <div class="rule-header">
+                        <div class="rule-icon violation">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <h3 class="rule-title">No Harassment or Discrimination</h3>
+                    </div>
+                    <p class="rule-description">Absolutely no hate speech, bullying, racism, sexism, or any form of
+                        discrimination against any individual or group.</p>
+                    <div class="consequence">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Consequence <span
+                                class="consequence-level">IMMEDIATE BAN</span></h4>
+                        <p>Permanent removal from all EC Community groups without warning.</p>
+                    </div>
+                </div>
+
+                <!-- Rule 2 -->
+                <div class="rule-card violation">
+                    <div class="rule-header">
+                        <div class="rule-icon violation">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="rule-title">No Illegal Content</h3>
+                    </div>
+                    <p class="rule-description">Sharing or promoting illegal activities, pirated content, or harmful
+                        materials is strictly prohibited.</p>
+                    <div class="consequence">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Consequence <span
+                                class="consequence-level">IMMEDIATE BAN</span></h4>
+                        <p>Permanent removal and reporting to authorities if necessary.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Major Rules with Warnings -->
+            <div class="guidelines-section" data-aos="fade-up">
+                <h2><i class="fas fa-exclamation-circle"></i> Major Rules - Warnings Apply</h2>
+                <p>These violations typically result in warnings before removal.</p>
+
+                <!-- Rule 3 -->
+                <div class="rule-card warning">
+                    <div class="rule-header">
+                        <div class="rule-icon warning">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3 class="rule-title">No Unsolicited Marketing</h3>
+                    </div>
+                    <p class="rule-description">Do not spam the group with promotional content, affiliate links, or
+                        unsolicited business offers without admin permission.</p>
+                    <div class="consequence">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Consequence <span class="consequence-level">1
+                                WARNING THEN REMOVAL</span></h4>
+                        <p>First offense: Warning and message deletion. Second offense: Removal from group.</p>
+                    </div>
+                </div>
+
+                <!-- Rule 4 -->
+                <div class="rule-card warning">
+                    <div class="rule-header">
+                        <div class="rule-icon warning">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <h3 class="rule-title">Respect Privacy</h3>
+                    </div>
+                    <p class="rule-description">Do not share others' personal information, contact details, or private
+                        conversations without explicit consent.</p>
+                    <div class="consequence">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Consequence <span
+                                class="consequence-level">IMMEDIATE REMOVAL</span></h4>
+                        <p>Privacy violations result in immediate removal due to their serious nature.</p>
+                    </div>
+                </div>
+
+                <!-- Rule 5 -->
+                <div class="rule-card warning">
+                    <div class="rule-header">
+                        <div class="rule-icon warning">
+                            <i class="fas fa-flame"></i>
+                        </div>
+                        <h3 class="rule-title">No Drama or Arguments</h3>
+                    </div>
+                    <p class="rule-description">Keep discussions professional. Avoid heated arguments, personal attacks,
+                        or creating unnecessary drama.</p>
+                    <div class="consequence">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Consequence <span class="consequence-level">2
+                                WARNINGS THEN REMOVAL</span></h4>
+                        <p>First offense: Warning. Second: Final warning. Third: Removal from group.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Expectations -->
+            <div class="guidelines-section" data-aos="fade-up">
+                <h2><i class="fas fa-star"></i> Community Expectations</h2>
+                <p>These guidelines help maintain the quality of our community discussions.</p>
+
+                <!-- Rule 6 -->
+                <div class="rule-card success">
+                    <div class="rule-header">
+                        <div class="rule-icon success">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="rule-title">Use Relevant Channels</h3>
+                    </div>
+                    <p class="rule-description">Post content in appropriate groups. Devs Hub for technical discussions,
+                        Insight Room for strategy and marketing topics.</p>
+                </div>
+
+                <!-- Rule 7 -->
+                <div class="rule-card success">
+                    <div class="rule-header">
+                        <div class="rule-icon success">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3 class="rule-title">Be Helpful & Constructive</h3>
+                    </div>
+                    <p class="rule-description">Provide helpful feedback, answer questions when you can, and contribute
+                        positively to discussions.</p>
+                </div>
+
+                <!-- Rule 8 -->
+                <div class="rule-card success">
+                    <div class="rule-header">
+                        <div class="rule-icon success">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3 class="rule-title">English Language Only</h3>
+                    </div>
+                    <p class="rule-description">To ensure everyone can participate and understand, please use English in
+                        all group communications.</p>
+                </div>
+            </div>
+
+            <!-- Reporting -->
+            <div class="guidelines-section" data-aos="fade-up">
+                <h2><i class="fas fa-flag"></i> Reporting Issues</h2>
+                <p>Help us maintain a safe community by reporting guideline violations.</p>
+
+                <div class="guidelines-grid">
+                    <div class="guideline-point">
+                        <i class="fas fa-robot"></i>
+                        <div>
+                            <h4>Contact Admins</h4>
+                            <p>Message any admin directly with concerns</p>
+                        </div>
+                    </div>
+                    <div class="guideline-point">
+                        <i class="fas fa-screenshot"></i>
+                        <div>
+                            <h4>Provide Evidence</h4>
+                            <p>Screenshot violations when reporting</p>
+                        </div>
+                    </div>
+                    <div class="guideline-point">
+                        <i class="fas fa-user-tie"></i>
+                        <div>
+                            <h4>Respect Decisions</h4>
+                            <p>Trust admin judgments on rule enforcement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agreement -->
+            <div class="guidelines-section" data-aos="fade-up">
+                <h2><i class="fas fa-check-circle"></i> Agreement</h2>
+                <p>By joining our EC Community WhatsApp groups, you agree to:</p>
+                <div class="rule-card success">
+                    <div class="rule-header">
+                        <div class="rule-icon success">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h3 class="rule-title">Follow All Guidelines</h3>
+                    </div>
+                    <p class="rule-description">You acknowledge and agree to follow all community guidelines outlined
+                        above.</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p><strong>These guidelines are enforced to ensure EC Community remains a valuable, safe, and
+                            professional space for all members.</strong></p>
+                </div>
+            </div>
+
+            <!-- Join CTA -->
+            <div class="guidelines-section" data-aos="fade-up" style="text-align: center;">
+                <h2><i class="fas fa-users"></i> Ready to Join?</h2>
+                <p>If you agree with our guidelines and are 18+ years old, welcome to our community!</p>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem;">
+                    <a href="YOUR_WHATSAPP_LINK_DEVS" class="btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Join Devs Hub
+                    </a>
+                    <a href="YOUR_WHATSAPP_LINK_INSIGHT" class="btn-secondary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Join Insight Room
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Universal Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="/images/favicon.png" alt="EC Community Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">EC Community</span>
+                    </div>
+                    <p class="footer-description">
+                        The Ephraim Creations Community brings together developers, designers, and digital professionals
+                        who are passionate about learning, collaboration, and innovation. Through our dedicated WhatsApp
+                        spaces—Devs Hub and Insight Room—we foster an environment where creativity meets technology,
+                        ideas turn into action, and members grow both personally and professionally. Join us and be part
+                        of a forward-thinking network shaping the future of digital creation.
+                    </p>
+
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/ephraim-mutwiri-052a58310" class="social-icon"
+                            target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.tiktok.com/@ephraim_creations" class="social-icon" target="_blank"><i
+                                class="fab fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/ephraimmutwiri2025" class="social-icon" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://www.youtube.com/@EphraimCreationsKE" class="social-icon" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Our Groups</h4>
+                        <a href="/#devs-hub">Devs Hub</a>
+                        <a href="/#insight-room">Insight Room</a>
+                        <a href="/#join">Join Community</a>
+                        <a href="/#faq">Community FAQ</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Resources</h4>
+                        <a href="/#about">About EC Community</a>
+                        <a href="/#founder">Meet Our Founder</a>
+                        <a href="/#why-join">Why Join Us</a>
+                        <a href="/#reviews">Member Reviews</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <a href="tel:+542112268873">Contact Support</a>
+                        <a href="https://wa.me/254112268873" target="_blank">WhatsApp Help</a>
+                        <a href="/#faq">Help Center</a>
+                        <a href="/guidelines/">Community Updates</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Legal & Policies</h4>
+                        <a href="/privacy-plan/">Privacy Policy</a>
+                        <a href="/guidelines/">Community Guidelines</a>
+                        <a href="/guidelines/">Terms & Conditions</a>
+                        <a href="/guidelines/">Code of Conduct</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Join Section -->
+            <div class="footer-join" data-aos="fade-up">
+                <div class="footer-join-content">
+                    <h4>Ready to Join Our Community?</h4>
+                    <p>Connect with 350+ developers and creatives today</p>
+                    <div class="footer-join-buttons">
+                        <a href="YOUR_WHATSAPP_LINK_DEVS" class="btn-primary small" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Devs Hub
+                        </a>
+                        <a href="YOUR_WHATSAPP_LINK_INSIGHT" class="btn-secondary small" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Insight Room
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        <p>&copy; 2025 EC Community. All rights reserved. | Building the future of digital collaboration
+                        </p>
+                    </div>
+                    <div class="footer-credits">
+                        <p>Powered by <a href="https://www.ephraimworks.online" target="_blank">Ephraim</a> | Designed
+                            with ❤️ for the community</p>
+                    </div>
+                    <div class="footer-legal-links">
+                        <a href="/privacy-plan/">Privacy</a>
+                        <span>•</span>
+                        <a href="/guidelines/">Guidelines</a>
+                        <span>•</span>
+                        <a href="/guidelines/">18+ Only</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
